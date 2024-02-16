@@ -8,15 +8,9 @@ function Page (
         $object_2 -> errors ();
 
         $head_base_content = $object_2 -> headBaseContent ( $favicon );
-
-        $license = $object_2 -> license ();
         
     $object -> build ( 
-        $head_base_content . $head , implode( "" , [
-            $body ,
-            $license
-        ] ) ,
-        $lang , "class='container'"
+        $head_base_content . $head , $body , $lang , "class='container'"
     );
     
 }
