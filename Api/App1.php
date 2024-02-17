@@ -14,6 +14,10 @@
 
     require_once ( "../../Libreria/ParaLaVista/Functions/TwoEcolsFlex/TwoEColsFlex.php" );
 
+    require_once ( "../../Libreria/ParaLaVista/Functions/Normalize/Normalize.php" );
+
+    require_once ( "../../Libreria/ParaLaVista/Functions/TwoEqualColumns/TwoEqualColumns.php" );
+
     $obj1 = new Content;
 
     $obj2 = new Adapto;
@@ -65,9 +69,34 @@
 
     $section2 = Element::OHtml ( "section" , 
 
-        "Section 2" , 
+        Element::OHtml ( "div" ,
 
-    '' , 1 );
+            Element::OHtml ( "h2" , "About" , '' , 1 ) .
+
+            Element::OHtml ( "p" , "
+                Dedicated PHP developer, passionate about developing 
+                sophisticated backend solutions. 
+                I excel in problem-solving and aspire to be an elite backend 
+                engineer, committed to enhancing user experiences through 
+                seamless, innovative software. My goal is to deliver 
+                high-quality, efficient, and intuitive applications 
+                that meet the evolving needs of users.
+            " , '' , 1 )
+        
+        , '' , 1) .
+
+        Element::OHtml ( "div" ,
+
+            Element::OHtml ( "img" , '' , '
+                src="http://adaptowebs.test/v1/Vista/Media/Logo.gif" alt="My Website Logo" 
+                width="100%" style="border-radius: 100%;"
+            ' ) 
+        
+        , '' , 1) . 
+
+        Element::OHtml ( "h2" , "Skills" , '' , 1 )
+
+    , 'class="TwoEqualColumns" style="padding:15px;"' , 1 );
 
     $section3 = Element::OHtml ( "section" , 
 
@@ -82,7 +111,8 @@
     '' , 1 );
 
     $style = $obj2 -> styleCss ( 
-        colorsRoot () . baseCss () . TwoEColsFlex ()
+        colorsRoot () . baseCss () . TwoEColsFlex () . Normalize () . 
+        TwoEqualColumns ()
     );
 
     page ( 
