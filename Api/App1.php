@@ -18,6 +18,8 @@
 
     require_once ( "../../Libreria/ParaLaVista/Functions/TwoEqualColumns/TwoEqualColumns.php" );
 
+    require_once ( "../../Libreria/ParaLaVista/Functions/LayoutShifter/LayoutShifter.php" );
+
     $obj1 = new Content;
 
     $obj2 = new Adapto;
@@ -100,9 +102,44 @@
 
     $section3 = Element::OHtml ( "section" , 
 
-        "Section 3" , 
+            Element::OHtml ( "div" , 
+            
+                Element::OHtml ( "h2" , "Bilingual : Spanish - English" , '' , 1 ) .
+                Element::OHtml ( "h2" , "Technologies" , '' , 1 ) .
+                Element::OHtml ( "h4" , "html , css , MySql" , '' , 1 ) . 
+                Element::OHtml ( "h2" , "Operating Systems" , '' , 1 ) . 
+                Element::OHtml ( "h4" , "Windows" , '' , 1 )
+
+            , 'class="section3"' , 1 ) .
+
+            Element::OHtml ( "div" , 
+            
+                Element::OHtml ( "h2" , "Expertise" , '' , 1 ) .
+                Element::OHtml ( "h4" , "PHP" , '' , 1  ) .
+                Element::OHtml ( "h4" , "Composer php" , '' , 1 ) . 
+                Element::OHtml ( "h4" , "LAMP Stack Deploy" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Web Develoment" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Teamwork And Good Communication" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Linux" , '' , 1 )
+            
+            , 'class="section2"' , 1 ) .
+
+            Element::OHtml ( "div" , 
+            
+                Element::OHtml ( "h2" , "Other Basic Beginner Knowledge" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Javascript" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Python" , '' , 1 ) . 
+                Element::OHtml ( "h4" , "VirtualBox" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Vagrant" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Docker" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Agile Methodologies" , '' , 1 ) . 
+                Element::OHtml ( "h4" , "Mac Os Catalina" , '' , 1 ) .
+                Element::OHtml ( "h4" , "Laravel" , '' , 1 ) .
+                Element::OHtml ( "h4" , "PhpUnit - test driven develoment" , '' , 1 )
+            
+            , 'class="section1"' , 1 )
         
-    '' , 1 );
+    , 'class="LayoutShifter"' , 1 );
 
     $section4 = Element::OHtml ( "section" , 
     
@@ -112,10 +149,11 @@
 
     $style = $obj2 -> styleCss ( 
         colorsRoot () . baseCss () . TwoEColsFlex () . Normalize () . 
-        TwoEqualColumns ()
+        TwoEqualColumns () . LayoutShifter ()
     );
 
     page ( 
+
         $obj1 , $obj2 , 
         "http://adaptowebs.test/v1/Vista/Media/logo.png" , 
         "en" , $tabTitle . $style , 

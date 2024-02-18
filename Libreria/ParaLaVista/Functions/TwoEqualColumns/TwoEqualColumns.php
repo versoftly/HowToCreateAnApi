@@ -13,6 +13,7 @@ function TwoEqualColumns () {
                 column-gap: 1rem;
                 align-items: center;
                 background-color: var(--gris);
+                color: var(--blanco);
                 
             }
             
